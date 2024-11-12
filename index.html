@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Thanh toán</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="scripts.js"></script>
+	<script src="https://js.stripe.com/v3/"></script>
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="left-panel">
+			<div class="input-box">
+				<label for="product">Chọn sản phẩm:</label>
+				<select id="product-select" name="product">
+					<option value="price_1QJz8RGEsYaWh95t098f3DLk" data-price="90000">Áo thun T-Shirt: 90.000 VNĐ</option>
+					<option value="price_1QJz9JGEsYaWh95tmcHI0sOW" data-price="50000">Bình hoa tái chế: 50.000 VNĐ</option>
+				</select>
+			</div>
+
+			<div class="input-box">
+				<label for="content">Nội dung</label>
+				<input type="text" id="content" placeholder="Nhập nội dung thanh toán">
+			</div>
+			<div class="input-box">
+				<label for="urlReturt">Nhập URL</label>
+				<input type="text" id="urlReturn" placeholder="Nhập url">
+			</div>
+			
+			<div class="payment-methods">
+				<div class="payment-method" onclick="selectPaymentMethod('momo')">Momo</div>
+				<div class="payment-method" onclick="selectPaymentMethod('vnpay')">VNPAY</div>
+				<div class="payment-method" onclick="selectPaymentMethod('qr_code')">QR Ngân hàng</div>
+				<div class="payment-method" onclick="selectPaymentMethod('stripe')">Cổng thanh toán Stripe</div>
+			</div>
+			<div class="input-box">
+				<button id="updateButton" onclick="updatePaymentInfo()">Cập nhật</button>
+				<button id="resetButton" onclick="goBack()">Reset</button>
+				<button id="checkURL" onclick="checkURL()">Check URL</button>
+			</div>
+		</div>
+		<div class="right-panel">
+			<div class="payment-view" id="paymentView">
+				Chọn phương thức thanh toán và cập nhật số tiền để xem giao diện
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

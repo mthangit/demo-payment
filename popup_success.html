@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán thành công</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+
+        .message {
+            font-size: 24px;
+            color: green;
+        }
+
+        .countdown {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="message">
+        Thanh toán thành công!
+    </div>
+    <div class="countdown">
+        Thanh toàn hoàn tất, trình duyệt sẽ tự động đóng trong 3 giây...
+    </div>
+    <script>
+        // Sau khi popup được tải xong, gửi URL về cửa sổ cha
+        window.onload = function() {
+            sendUrlToParent();
+
+			// Sau 3 giây, đóng cửa sổ
+			setTimeout(function() {
+				window.close();
+			}, 3500);
+        };
+
+        // Hàm gửi URL về cửa sổ cha
+        const sendUrlToParent = function() {
+            const currentUrl = window.location.href;
+            // Gửi URL tới cửa sổ cha
+            window.opener.postMessage({ type: 'url_change', url: currentUrl }, '*');
+        };
+
+        // Lắng nghe sự thay đổi URL (nếu có)
+        window.addEventListener('popstate', sendUrlToParent);
+    </script>
+
+</body>
+
+</html>
+
+
