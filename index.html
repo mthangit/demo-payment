@@ -27,10 +27,10 @@
 				<label for="content">Nội dung</label>
 				<input type="text" id="content" placeholder="Nhập nội dung thanh toán">
 			</div>
-			<div class="input-box">
-				<label for="urlReturt">Nhập URL</label>
-				<input type="text" id="urlReturn" placeholder="Nhập url">
-			</div>
+            <div class="input-box" style="display: none;">
+                <label for="urlReturt">Nhập URL</label>
+                <input type="text" id="urlReturn" placeholder="Nhập url">
+            </div>
 			
 			<div class="payment-methods">
 				<div class="payment-method" onclick="selectPaymentMethod('momo')">Momo</div>
@@ -41,7 +41,7 @@
 			<div class="input-box">
 				<button id="updateButton" onclick="updatePaymentInfo()">Cập nhật</button>
 				<button id="resetButton" onclick="goBack()">Reset</button>
-				<button id="checkURL" onclick="checkURL()">Check URL</button>
+                <button id="checkURL" onclick="checkURL()" style="display: none;">Check URL</button>
 			</div>
 		</div>
 		<div class="right-panel">
